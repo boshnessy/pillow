@@ -6,7 +6,7 @@ class PillowsController < ApplicationController
 
   def show
     id = params[:id]
-    pillow = Sleep.find_by(:id)
+    pillow = Sleep.find_by(id: id)
     render json: pillow.as_json
   end
 end
