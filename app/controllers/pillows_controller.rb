@@ -3,4 +3,10 @@ class PillowsController < ApplicationController
     pillows = Sleep.all
     render json: pillows.as_json
   end
+
+  def show
+    id = params[:id]
+    pillow = Sleep.find_by(:id)
+    render json: pillow.as_json
+  end
 end
