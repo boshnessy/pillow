@@ -25,13 +25,21 @@ require 'unirest'
 
 
 # update action
-p "Enter the id of the product you wish to update"
+# p "Enter the id of the product you wish to update"
+# id = gets.chomp
+
+# response = Unirest.patch("localhost:3000/pillows/#{id}", parameters: {
+#   name: "Foamified Pillow",
+#   price: 54.45,
+#   description: "still a pillow made of foam"
+#   }
+# )
+# p response.body
+
+
+# destroy action
+p "Enter the id of the product you wish to delete"
 id = gets.chomp
 
-response = Unirest.patch("localhost:3000/pillows/#{id}", parameters: {
-  name: "Foamified Pillow",
-  price: 54.45,
-  description: "still a pillow made of foam"
-  }
-)
+response = Unirest.delete("localhost:3000/pillows/#{id}")
 p response.body

@@ -37,4 +37,14 @@ class PillowsController < ApplicationController
       render json: {errors: pillow.errors.full_messages}
     end
   end
+
+  def destroy
+    id = params[:id]
+    pillow = Sleep.find_by(id: id)
+    if pillow.destroy
+      render json: {message: "Item deleted"}
+    else
+      render json: {errors: pillow.errors.full_messages}
+    end
+  end
 end
