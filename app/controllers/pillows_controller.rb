@@ -1,5 +1,6 @@
 class PillowsController < ApplicationController
   def index
-    render json: {message: "hi"}
+    pillows = Sleep.all
+    render json: pillows.as_json
   end
 end
