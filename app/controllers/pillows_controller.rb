@@ -22,4 +22,19 @@ class PillowsController < ApplicationController
       render json: {errors: pillow.errors.full_messages}
     end
   end
+
+  def update
+    id = params[:id]
+    pillow = Sleep.find_by(id: id)
+    pillow.update(
+      name: params[:name],
+      price: params[:price],
+      description: params[:description]
+    )
+    if pillow.save
+      render json: pillow.as_json, status: :created
+    else
+      render json: {errors: pillow.errors.full_messages}
+    end
+  end
 end
